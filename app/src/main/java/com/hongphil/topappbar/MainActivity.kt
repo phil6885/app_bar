@@ -74,7 +74,9 @@ class MainActivity : ComponentActivity() {
                             colors = TopAppBarDefaults.topAppBarColors(
                                 containerColor = colorResource(
                                     R.color.purple_700
-                                )
+                                ),
+                                actionIconContentColor = Color.White,
+                                navigationIconContentColor = Color.White
                             )
                         )
 
