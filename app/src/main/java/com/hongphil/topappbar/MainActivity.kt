@@ -17,7 +17,6 @@ import androidx.compose.material.icons.filled.Share
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -25,6 +24,7 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
@@ -36,7 +36,49 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             TopAppBarTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                Scaffold(
+                    modifier = Modifier.fillMaxSize(),
+                    topBar = {
+                        TopAppBar(
+                            navigationIcon = {
+                                IconButton(
+                                    onClick = { })
+                                {
+                                    Icon(Icons.Filled.Menu, contentDescription = null)
+                                }
+                            },
+                            title = {
+                                Column {
+                                    Text(
+                                        text = stringResource(R.string.appbar_title),
+                                        color = Color.White,
+                                        fontSize = 20.sp
+                                    )
+                                    Text(text = "Subtitle", color = Color.White, fontSize = 16.sp)
+                                }
+                            },
+                            actions = {
+                                IconButton(onClick = { }) {
+                                    Icon(Icons.Filled.Share, contentDescription = "Share Icon")
+                                }
+
+                                IconButton(onClick = { }) {
+                                    Icon(Icons.Filled.Search, contentDescription = "Search Icon")
+                                }
+
+                                IconButton(onClick = { }) {
+                                    Icon(Icons.Filled.MoreVert, contentDescription = "More Icon")
+                                }
+
+                            },
+                            colors = TopAppBarDefaults.topAppBarColors(
+                                containerColor = colorResource(
+                                    R.color.purple_700
+                                )
+                            )
+                        )
+
+                    }) { innerPadding ->
                     Greeting(
                         name = "Android",
                         modifier = Modifier.padding(innerPadding)
@@ -98,6 +140,6 @@ fun TopAppBarPreview() {
             }
 
         },
-        colors = TopAppBarDefaults.topAppBarColors(containerColor = MaterialTheme.colorScheme.primary)
+        colors = TopAppBarDefaults.topAppBarColors(containerColor = colorResource(R.color.purple_700))
     )
 }
