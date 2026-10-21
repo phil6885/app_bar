@@ -49,7 +49,9 @@ class MainActivity : ComponentActivity() {
                         TopAppBar(
                             navigationIcon = {
                                 IconButton(
-                                    onClick = { })
+                                    onClick = {
+                                        actionText.value = "Navigation Icon Clicked"
+                                    })
                                 {
                                     Icon(Icons.Filled.Menu, contentDescription = null)
                                 }
@@ -65,11 +67,15 @@ class MainActivity : ComponentActivity() {
                                 }
                             },
                             actions = {
-                                IconButton(onClick = { }) {
+                                IconButton(onClick = {
+                                    actionText.value = "Share Icon Clicked"
+                                }) {
                                     Icon(Icons.Filled.Share, contentDescription = "Share Icon")
                                 }
 
-                                IconButton(onClick = { }) {
+                                IconButton(onClick = {
+                                    actionText.value = "Search Icon Clicked"
+                                }) {
                                     Icon(Icons.Filled.Search, contentDescription = "Search Icon")
                                 }
 
